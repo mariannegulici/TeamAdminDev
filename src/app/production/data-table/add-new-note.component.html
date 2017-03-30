@@ -1,0 +1,8 @@
+<div class="add-new-note-container">
+    <md-toolbar color="primary">Add new Note</md-toolbar>
+    <div [froalaEditor]="editorOptions" [(froalaModel)]="editorContent"></div>
+    <div class="actions-container">
+        <button md-raised-button color="accent" (click)="discardCloseDialog()"><i class="material-icons">close</i>Discard and Close</button>
+        <button md-raised-button color="accent" (click)="saveNote()"><i class="material-icons">save</i>Save Note</button>
+    </div>
+</div>

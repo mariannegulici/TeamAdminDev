@@ -1,0 +1,12 @@
+<div class="members-container">
+    <div class="members-container-title" color="accent">Team Members</div>
+    <md-list>
+        <md-list-item [ngSwitch]="member.status" *ngFor="let member of team[0]">
+            <div *ngSwitchCase="'offline'" class="list-item-status status-offline"></div>
+            <div *ngSwitchCase="'available'" class="list-item-status status-available"></div>
+            <div *ngSwitchCase="'ongoing'" class="list-item-status status-ongoing"></div>
+            <div *ngSwitchDefault></div>
+            <span>{{member.name}}</span>
+        </md-list-item>
+    </md-list>
+</div>

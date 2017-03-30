@@ -1,0 +1,29 @@
+<md-progress-bar *ngIf="showProgressBar" mode="query" color="accent"></md-progress-bar>
+<md-tab-group>
+  <md-tab label="Tasks and Notes">
+    <div class="tasks-container">
+      <div class="tasks-table-wrapper">
+        <table class="details-table">
+          <tbody class="details-table-body">
+            <tr *ngFor="let rowDetailTask of rowDetailsTasks, let i=index" [ngClass]="rowDetailsClasses[i]" (click)="showDetailsforProjectTask(i)">
+              <td><span>{{rowDetailTask.TargetedRole}}</span></td>
+              <td><span>{{rowDetailTask.ShortDescription}}</span></td>
+              <td><span>{{rowDetailTask.StatusTask}}</span></td>
+              <td><span>{{rowDetailTask.Assigned}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="note-container">
+      <div class="notes-wrapper">
+        <div class="note-bubble-container">
+            <div class="note-bubble" *ngFor="let taskNote of taskNotes" [froalaView]="taskNote.message">
+            </div>
+        </div>
+        <button md-mini-fab class="add-note-button" mdTooltip="Add a new note" color="accent" (click)="addNewNote()"><md-icon>note_add</md-icon></button>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Project Details">Content 2</md-tab>
+</md-tab-group>

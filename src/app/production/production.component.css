@@ -1,0 +1,28 @@
+.production-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+div.data-table {
+    width: 85%;
+}
+
+div.data-table data-table {
+    display: block;
+    width: initial;
+    height: 100%;
+}
+
+div.users-table {
+    width: 15%;
+}
+
+div.users-table team-members {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid #e3e3e3;
+}
+

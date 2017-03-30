@@ -1,0 +1,38 @@
+<div class="table-wrapper">
+    <table class="data-table">
+        <thead class="data-table-header">
+            <tr>
+                <th><span class="table-col-name">Assign Task</span></th>
+                <th *ngFor="let tableDataCol of tableDataCols, let i=index" (click)="sortTableByColumn(tableDataCol.columnName,i)">
+                    <span class="table-col-name">{{tableDataCol.columnName}}</span>
+                    <span [ngSwitch]="tableDataCol.sortDir" class="table-col-sort-order">
+                        <i *ngSwitchCase="'desc'" class="material-icons">arrow_upward</i>
+                        <i *ngSwitchCase="'asc'" class="material-icons">arrow_downward</i>
+                        <i *ngSwitchDefault></i>
+                    </span>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="data-table-body">
+            <ng-container *ngFor="let data of tableData, let i=index">
+                <tr [ngClass]="tableDataView[i]">
+                    <td class="data-table-cell" colspan="1">
+                        <md-select placeholder="Assign to:" (change)="assignTask($event, data.id)">
+                            <md-option *ngFor="let memberData of membersData[0]" [value]="memberData.name">{{memberData.name}}</md-option>
+                        </md-select>
+                    </td>
+                    <td class="data-table-cell" colspan="1" (click)="setFocus(i)"><span>{{data.Assigned}}</span></td>
+                    <td class="data-table-cell" colspan="1" (click)="setFocus(i)"><span>{{data.Deadline}}</span></td>
+                    <td class="data-table-cell" colspan="1" (click)="setFocus(i)"><span>{{data.Sender}}</span></td>
+                    <td class="data-table-cell" colspan="1" (click)="setFocus(i)"><span>{{data.StatusTask}}</span></td>
+                    <td class="data-table-cell" colspan="1" (click)="setFocus(i)"><span>{{data.TargetedTeam}}</span></td>
+                </tr>
+                <tr *ngIf="tableDataView[i].showDetails" class="data-row-details">
+                    <td class="row-data-details-wrapper" colspan="5">
+                        <row-data-details [rowProjectID]="data.ProjectID" [rowTaskID]="data.id"></row-data-details>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

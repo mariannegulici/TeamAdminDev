@@ -1,0 +1,57 @@
+div.members-container {
+    display: flex;
+    flex-direction: column;
+}
+
+div.members-container div.members-container-title {
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.54);
+    text-align: center;
+    background-color: #ffd740;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 2px 0 rgba(0, 0, 0, 0.075), 0 3px 0 rgba(0, 0, 0, 0.05), 0 4px 0 rgba(0, 0, 0, 0.015);
+}
+
+div.members-container .mat-list {
+    padding-top: 0px;
+}
+
+div.members-container .mat-list .mat-list-item {
+    width: 100%;
+}
+
+.mat-list .mat-list-item .mat-list-item-content {
+    height: 30px;
+    line-height: 28px;
+    font-size: 13px;
+    padding: 1px 0px 1px 0px;
+    border-bottom: 1px solid #eee;
+}
+
+div.mat-list-item-content div.list-item-status {
+    display: flex;
+    width: 10px;
+    height: 28px;
+    margin-right: 5px;
+}
+
+div.mat-list-item-content div.status-available {
+    background-color: rgba(255, 255, 0, .65);
+}
+
+div.mat-list-item-content div.status-ongoing {
+    background-color: rgba(255, 0, 0, .65);
+}
+
+div.mat-list-item-content div.status-offline {
+    background-color: rgba(0, 0, 0, .50);
+}
+
+div.mat-list-item-content span {
+    display: flex;
+    width: 100%;
+    height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

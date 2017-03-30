@@ -1,3 +1,66 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <button class="app-icon-button" (click)="sidenav.toggle()">
+    <i class="material-icons app-toolbar-menu">menu</i>
+  </button>
+  <span style="margin-left: 20px;">
+    {{dynamicTitle}}
+  </span>
+  <div class="toolbar-right-wrapper">
+    <button md-icon-button mdTooltip="Landing Page" (click)="gotoModule('landing-page')">
+      <md-icon>home</md-icon>
+    </button>
+    <button md-icon-button mdTooltip="Notifications">
+      <md-icon>notifications</md-icon>
+    </button>
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-icon>view_module</md-icon>
+    </button>
+    <span mdTooltip="Available Modules">
+      <md-menu #menu="mdMenu">
+        <button md-menu-item (click)="gotoModule('personal-area')">
+          <div class="menu-item-wrapper">
+            <img src="assets/img/36x36/personal_info.png" alt="">
+            <span>Personal Area</span>
+          </div>
+        </button>
+        <button md-menu-item>
+        <div class="menu-item-wrapper">
+            <img src="assets/img/36x36/items_management.png" alt="">
+            <span>Items Management</span>
+        </div>
+        </button>
+        <button md-menu-item (click)="gotoModule('production')">
+          <div class="menu-item-wrapper">
+            <img src="assets/img/36x36/production.png" alt="">
+            <span>Tasks production</span>
+          </div>
+        </button>
+        <button md-menu-item>
+          <div class="menu-item-wrapper">
+            <img src="assets/img/36x36/projects_management.png" alt="">
+            <span>Projects Management</span>
+          </div>
+        </button>
+        <button md-menu-item>
+          <div class="menu-item-wrapper">
+            <img src="assets/img/36x36/tasks_management.png" alt="">
+            <span>Tasks Management</span>
+          </div>
+        </button>
+        <button md-menu-item>
+          <div class="menu-item-wrapper">
+            <img src="assets/img/36x36/statistics.png" alt="">
+            <span>Statistics</span>
+          </div>
+        </button>
+      </md-menu>
+    </span>
+  </div>
+</md-toolbar>
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="over" class="app-sidenav">
+    <app-sidenav></app-sidenav>
+  </md-sidenav>
+  <router-outlet></router-outlet>
+  <!--<app-production>Loading Production Module...</app-production>-->
+</md-sidenav-container>

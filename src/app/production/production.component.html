@@ -1,0 +1,10 @@
+<div class="production-wrapper">
+  <div class="data-table">
+    <data-table [membersData]="teamMembers" [assignmentFromMembers]="assignmentArrayMembers" (assignmentStack)="sendAssignmentStack($event)" >Loading Data ...</data-table>
+  </div>
+  <div class="users-table">
+    <team-members [assignmentArray]="taskAssignStack" (MembersRequest)="loadMembers($event)" (assignmentArrayMembers)="sendAssignmentArrayMembers($event)"></team-members>
+    <!--<button md-raised-button color="accent" (click)="sortTable()">Sort Table by user Assigned</button><br/>
+    <md-slide-toggle>Slide me!</md-slide-toggle>-->
+  </div>
+</div>

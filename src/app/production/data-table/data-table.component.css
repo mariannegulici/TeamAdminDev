@@ -1,0 +1,183 @@
+div.table-wrapper {
+    width: 85%;
+    height: calc(100% - 64px);
+    position: absolute;
+    z-index: 5;
+    overflow-y: scroll;
+    outline: none;
+    font-size: 13px;
+    line-height: 1.1;
+    font-weight: 400;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.87);
+    
+}
+
+table.data-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+thead.data-table-header {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 2px 0 rgba(0, 0, 0, 0.075), 0 3px 0 rgba(0, 0, 0, 0.05), 0 4px 0 rgba(0, 0, 0, 0.015);
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 85%;
+    height: 56px;
+    background-color: #fff;
+}
+
+thead.data-table-header tr {
+    display: flex;
+    width: 100%;
+    height: 56px;
+}
+
+thead.data-table-header tr th {
+    display: inline-flex;
+    width: calc(100%/6);
+    align-items: center;
+    height: inherit;
+    padding: 0 10px 0 10px;
+    box-sizing: border-box;
+}
+
+thead.data-table-header tr th span.table-col-name {
+    display: flex;
+    flex-grow: 10;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left;
+}
+
+thead.data-table-header tr th span.table-col-sort-order {
+    display: flex;
+    flex-grow: 1;
+}
+
+tbody.data-table-body {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: inherit;
+    margin-top: 56px;
+    cursor: pointer;
+}
+
+tbody.data-table-body .data-row {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+
+tr.data-row.color-for-sent {
+    color: rgba(255, 0, 0, .9);
+}
+
+tr.data-row.colorForAssigned {
+    color: rgba(0, 0, 255, .9);
+}
+
+tr.data-row.color-for-hold {
+    color: rgba(0, 0, 0, .5);
+}
+
+tbody.data-table-body .data-row:hover {
+    background-color: #eeeeee;
+}
+
+tbody.data-table-body .data-row::after {
+    background-color: #673ab7;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    transition: all 0.16s ease-in-out;
+    transform: scaleX(0.0);
+    z-index: 1;
+}
+
+tbody.data-table-body .data-row-focused {
+    background-color: #eeeeee;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+tbody.data-table-body .data-row-focused::after {
+    transform: scaleX(1.0);
+}
+
+tbody.data-table-body .data-row td.data-table-cell {
+    display: inline-flex;
+    align-items: center;
+    height: inherit;
+    width: calc(100%/6);
+    white-space: pre-wrap;
+    border-bottom: 1px solid #e3e3e3;
+    padding: 0 10px 0 10px;
+    box-sizing: border-box;
+}
+
+tbody.data-table-body .data-row td.data-table-cell span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+tbody.data-table-body .data-row-details {
+    display: flex;
+    width: 100%;
+}
+
+tbody.data-table-body .data-row-details td.data-table-cell {
+    will-change: transform;
+    transition: all .2s cubic-bezier(0,0,.21,1);
+    width: 100%;
+    height: 500px;
+}
+
+tbody.data-table-body .data-row-details td.row-data-details-wrapper {
+    width: 100%;
+}
+
+tbody.data-table-body .data-row-details td.row-data-details-wrapper row-data-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.mat-select {
+    width: 100%;
+}
+
+.mat-select .mat-select-trigger {
+    font-size: 13px;
+}
+
+.mat-select .mat-select-placeholder.mat-floating-placeholder {
+    opacity: 0;
+}
+
+.mat-select .mat-select-value {
+    width: 90%;
+}
+
+.mat-select .mat-select-panel {
+    max-height: none;
+}
