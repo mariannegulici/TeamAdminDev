@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 
 import { PersonalAreaComponent } from './personal-area.component';
+import { DxTreeViewModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PersonalAreaComponent } from './personal-area.component';
     ],
   imports: [
     CommonModule,
+    DxTreeViewModule,
     MaterialModule
   ],
   providers: [

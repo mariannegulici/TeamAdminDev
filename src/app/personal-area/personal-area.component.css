@@ -1,0 +1,19 @@
+div.personal-area-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-flow: row;
+}
+
+div.personal-area-wrapper .trew-view {
+    width: 40%;
+    height: 100%;
+    padding: 50px 0 0 17px;
+    border-right: 1px solid rgba(0,0,0,.15);
+}
+
+div.personal-area-wrapper .personal-info-view {
+    width: 60%;
+    height: 100%;
+    padding: 50px 0 0 0;
+}
