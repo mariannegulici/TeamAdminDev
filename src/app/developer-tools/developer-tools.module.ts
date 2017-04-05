@@ -4,13 +4,11 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
-import { PersonalAreaComponent } from './personal-area.component';
-import { DxTreeViewModule } from 'devextreme-angular';
-import { DxDateBoxModule } from 'devextreme-angular';
+import { DeveloperToolsComponent } from './developer-tools.component';
 
 @NgModule({
   declarations: [
-    PersonalAreaComponent
+    DeveloperToolsComponent
   ],
   entryComponents: [
     ],
@@ -18,12 +16,10 @@ import { DxDateBoxModule } from 'devextreme-angular';
     ],
   imports: [
     CommonModule,
-    DxTreeViewModule,
-    DxDateBoxModule,
     FormsModule,
     MaterialModule
   ],
   providers: [
   ]
 })
-export class PersonalAreaModule { }
+export class DeveloperToolsModule { }

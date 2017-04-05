@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Service, Product } from './personal-area.service';
 
 @Component({
@@ -15,7 +16,12 @@ export class PersonalAreaComponent {
         this.teamSchema = service.getProducts();
     }
 
-  showEmployeeInfo(event) {
-      console.log(event);
-  }
+    showEmployeeInfo(event) {
+        console.log(event);
+    }
+
+    onSubmit(form: NgForm, event: Event) {
+        event.preventDefault();
+        console.log(form.value);
+    }
 }

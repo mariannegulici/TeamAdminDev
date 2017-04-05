@@ -1,11 +1,97 @@
 <div class="personal-area-wrapper">
-    <div class="trew-view">
+    <div class="tree-view">
+        <div class="secondary-toolbar">
+        </div>
         <dx-tree-view
             [items]="teamSchema"
             (onItemClick)="showEmployeeInfo($event)"
         ></dx-tree-view>
     </div>
     <div class="personal-info-view">
-        
+        <form class="personal-info-form" (ngSubmit)="onSubmit(newTeamMember,$event)" #newTeamMember="ngForm">
+            <md-grid-list cols="2" rowHeight="60px">
+                <md-grid-tile>
+                    <md-input-container>
+                        <input mdInput type="number" placeholder="Employee ID (Marca)" required ngModel name="employee_id" autocomplete="off">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Name" required ngModel name="name" autocomplete="off">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Windows User" required ngModel name="window_user" autocomplete="off">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-input-container>
+                        <input mdInput type="email" placeholder="E-mail" required ngModel name="email" autocomplete="off">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Favorite food">
+                        <md-option [value]="associate">
+                            Associate
+                        </md-option>
+                        <md-option [value]="standard">
+                            Standard
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Team">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Manager">
+                        <md-option [value]="Marean">
+                            Marean
+                        </md-option>
+                        <md-option [value]="Marean_2">
+                            Marean 2
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Status" [ngModel]="selected" required name="status">
+                        <md-option [value]="online">
+                            Online
+                        </md-option>
+                        <md-option [value]="offline">
+                            Offline
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <div class="dx-field-value">
+                        <dx-date-box type="date" placeholder="Hiring Date"></dx-date-box>
+                    </div>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <div class="dx-field-value">
+                        <dx-date-box type="date" placeholder="Ready for Production"></dx-date-box>
+                    </div>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <div class="dx-field-value">
+                        <dx-date-box type="date" placeholder="Leaving Date"></dx-date-box>
+                    </div>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="2">
+                    <button md-raised-button type="submit" [disabled]="!newTeamMember.form.valid" color="accent">Submit changes</button>
+                    <button md-raised-button type="reset" color="accent">Reset changes</button>
+                </md-grid-tile>
+            </md-grid-list>
+        </form>
+    </div>
+    <div class="add-new-view">
+        <div class="secondary-toolbar">
+        </div>
+        <button class="add-new-person" mdTooltip="Add new person" md-fab><md-icon>person_add</md-icon></button>
+        <!--<button md-raised-button>Submit changes</button>
+        <button md-raised-button>Reset Form</button>-->
     </div>
 </div>

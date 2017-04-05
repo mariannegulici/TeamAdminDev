@@ -1,0 +1,46 @@
+div.developer-tools-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-flow: row;
+}
+
+div.developer-tools-wrapper .paper-left-column {
+    width: 20%;
+    height: 90%;
+    background: #fff;
+}
+
+.paper-left-column .left-column-toolbar {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 64px;
+    background: #673ab7;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(255,255,255,.87);
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.paper-left-column md-list .mat-list-item:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.paper-left-column md-list /deep/ .mat-list-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.developer-tools-wrapper .paper-main-view {
+    width: 80%;
+    height: 100%;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.24), 0 0 3px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+}
