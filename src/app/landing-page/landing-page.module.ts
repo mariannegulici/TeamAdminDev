@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 // Needed for ngFor, ngIf, etc Directives
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MaterialDesignLoaderModule } from '../material-design-loader.module';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LandingPageComponent } from './landing-page.component';
@@ -23,7 +23,7 @@ const landingPageRoutes: Routes = [
     ],
   imports: [
     CommonModule,
-    MaterialModule,
+    MaterialDesignLoaderModule,
     RouterModule.forChild(landingPageRoutes)
   ],
   providers: [

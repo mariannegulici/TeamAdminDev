@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 // Needed for ngFor, ngIf, etc Directives
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MaterialDesignLoaderModule } from '../material-design-loader.module';
 import { FormsModule } from '@angular/forms';
 
 import { DeveloperToolsComponent } from './developer-tools.component';
@@ -17,7 +17,7 @@ import { DeveloperToolsComponent } from './developer-tools.component';
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule
+    MaterialDesignLoaderModule
   ],
   providers: [
   ]

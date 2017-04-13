@@ -29,7 +29,25 @@ md-sidenav-container {
 }
 
 md-sidenav {
-    width: 500px;
+    width: 320px;
+}
+
+md-sidenav .sidenav-header {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 288px;
+    height: 148px;
+    padding: 16px;
+    background-image: url("../assets/img/sidenav_background_1.jpg");
+    background-position: center;
+}
+
+.sidenav-header .sidenav-header-email, .sidenav-header-name {
+    color: #fff;
+}
+
+.sidenav-header .sidenav-header-email {
+    font-size: 14px;
 }
 
 app-production {

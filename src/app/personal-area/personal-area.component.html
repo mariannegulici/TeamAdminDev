@@ -80,9 +80,69 @@
                         <dx-date-box type="date" placeholder="Leaving Date"></dx-date-box>
                     </div>
                 </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Org Team">
+                        <md-option [value]="Marean">
+                            Marean
+                        </md-option>
+                        <md-option [value]="Marean_2">
+                            Marean 2
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Org Department/WSBL">
+                        <md-option [value]="Marean">
+                            Marean
+                        </md-option>
+                        <md-option [value]="Marean_2">
+                            Marean 2
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Working Hours (UTC)">
+                        <md-option [value]="Marean">
+                            Marean
+                        </md-option>
+                        <md-option [value]="Marean_2">
+                            Marean 2
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Region">
+                        <md-option [value]="Marean">
+                            Marean
+                        </md-option>
+                        <md-option [value]="Marean_2">
+                            Marean 2
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Location Country">
+                        <md-option [value]="Marean">
+                            Marean
+                        </md-option>
+                        <md-option [value]="Marean_2">
+                            Marean 2
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-select placeholder="Location City">
+                        <md-option [value]="Marean">
+                            Marean
+                        </md-option>
+                        <md-option [value]="Marean_2">
+                            Marean 2
+                        </md-option>
+                    </md-select>
+                </md-grid-tile>
                 <md-grid-tile [colspan]="2">
-                    <button md-raised-button type="submit" [disabled]="!newTeamMember.form.valid" color="accent">Submit changes</button>
-                    <button md-raised-button type="reset" color="accent">Reset changes</button>
+                    <button md-raised-button class="personal-info-form-submit" type="submit" [disabled]="!newTeamMember.form.valid" color="accent"><md-icon class="personal-info-form-icon">save</md-icon>Submit changes</button>
+                    <button md-raised-button type="reset" color="accent"><md-icon class="personal-info-form-icon">cancel</md-icon>Reset changes</button>
                 </md-grid-tile>
             </md-grid-list>
         </form>
@@ -91,7 +151,5 @@
         <div class="secondary-toolbar">
         </div>
         <button class="add-new-person" mdTooltip="Add new person" md-fab><md-icon>person_add</md-icon></button>
-        <!--<button md-raised-button>Submit changes</button>
-        <button md-raised-button>Reset Form</button>-->
     </div>
 </div>

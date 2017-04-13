@@ -51,6 +51,14 @@ div.personal-area-wrapper .personal-info-view {
     width: 90%;
 }
 
+.personal-info-form .personal-info-form-submit {
+    margin-right: 20px;
+}
+
+.personal-info-form .mat-raised-button .personal-info-form-icon {
+    margin-right: 10px;
+}
+
 div.personal-area-wrapper .add-new-view {
     position: relative;
     width: 15%;

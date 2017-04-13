@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from "@angular/material";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialDesignLoaderModule } from './material-design-loader.module';
 
 import { ProductionModule } from './production/production.module';
 import { PersonalAreaModule } from './personal-area/personal-area.module';
@@ -26,8 +25,7 @@ import { AppComponent } from './app.component';
     PersonalAreaModule,
     DeveloperToolsModule,
     LandingPageModule,
-    MaterialModule,
-    BrowserAnimationsModule,
+    MaterialDesignLoaderModule,
     ApplicationRoutes
   ],
   providers: [],
