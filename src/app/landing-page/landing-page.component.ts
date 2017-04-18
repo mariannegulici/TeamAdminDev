@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProjectSearchService } from '../shared/project-search.service';
 
 @Component({
   selector: 'app-landing-page', 
@@ -9,5 +10,10 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
 
-  constructor() {}
+  constructor(private projectSearchService: ProjectSearchService) {}
+
+  searchProjects(searchBoxValue) {
+    if (searchBoxValue == "") return false;
+    this.projectSearchService.searchInput(searchBoxValue);
+  }
 }

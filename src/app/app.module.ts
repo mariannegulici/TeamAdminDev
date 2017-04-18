@@ -12,10 +12,14 @@ import { ApplicationRoutes } from './application.routes';
 import "hammerjs";
 
 import { AppComponent } from './app.component';
+import { ProjectSearchComponent } from './project-search/project-search.component';
+
+import { ProjectSearchService } from './shared/project-search.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProjectSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { AppComponent } from './app.component';
     MaterialDesignLoaderModule,
     ApplicationRoutes
   ],
-  providers: [],
+  providers: [
+    ProjectSearchService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

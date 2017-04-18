@@ -9,7 +9,10 @@ import {
     MdInputModule,
     MdSelectModule,
     MdGridListModule,
-    MdListModule
+    MdListModule,
+    MdTooltipModule,
+    MdSnackBarModule,
+    MdProgressSpinnerModule
  } from '@angular/material';
 
 @NgModule({
@@ -23,7 +26,10 @@ import {
         MdInputModule,
         MdSelectModule,
         MdGridListModule,
-        MdListModule
+        MdListModule,
+        MdTooltipModule,
+        MdSnackBarModule,
+        MdProgressSpinnerModule
     ],
     exports: [
         BrowserAnimationsModule,
@@ -35,7 +41,10 @@ import {
         MdInputModule,
         MdSelectModule,
         MdGridListModule,
-        MdListModule
+        MdListModule,
+        MdTooltipModule,
+        MdSnackBarModule,
+        MdProgressSpinnerModule
     ]
 })
 export class MaterialDesignLoaderModule {}

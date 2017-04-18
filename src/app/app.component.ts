@@ -1,7 +1,8 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { MdToolbar, MdSidenav } from "@angular/material";
 import { Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ProjectSearchService, SearchModel } from './shared/project-search.service';
 
 @Component({
   selector: 'app-root',
@@ -21,12 +22,29 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ])
   ]
 })
-export class AppComponent {
-  dynamicTitle : string = "Team Admin";
+export class AppComponent implements OnInit {
+  dynamicTitle : String = "Team Admin";
+  showSearchResults: Boolean = false;
 
   @HostBinding('@bootstrapAnimation') bootstrapAnimation = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private projectSearchService: ProjectSearchService) {}
+
+  ngOnInit() {
+    this.catchSearchInputStream();
+  }
+
+  catchSearchInputStream() {
+    this.projectSearchService
+    .searchValue
+    .subscribe(
+        (value: SearchModel) => {
+            console.log(value.searchInputValue);
+            this.showSearchResults = value.showHideComponent;
+        },
+        error => console.log(error)
+    );
+  }
 
   /**
    * Perform routing requests for AppComponent
