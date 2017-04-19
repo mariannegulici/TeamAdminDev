@@ -26,8 +26,9 @@ div.project-search-wrapper .paper-left-column {
 
 div.project-search-wrapper .paper-main-view {
     display: flex;
+    position: relative;
     align-content: center;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 70%;
     height: 100%;
@@ -35,6 +36,13 @@ div.project-search-wrapper .paper-main-view {
     border-radius: 4px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.24), 0 0 3px rgba(0, 0, 0, 0.12);
     z-index: 10;
+    overflow-y: scroll;
+}
+
+.paper-main-view md-progress-spinner {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 div.project-search-wrapper .paper-right-column {

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Service, Product } from './personal-area.service';
+import { ProjectSearchDispatcherService } from '../dispatcher-services/project-search.dispatcher.service';
 
 @Component({
   selector: 'app-personal-area', 
@@ -9,11 +10,15 @@ import { Service, Product } from './personal-area.service';
   providers: [Service],
   animations: []
 })
-export class PersonalAreaComponent {
+export class PersonalAreaComponent implements OnInit {
     teamSchema: Product[];
 
-    constructor(service: Service) {
+    constructor(service: Service, private projectSearchDispatcherService: ProjectSearchDispatcherService) {
         this.teamSchema = service.getProducts();
+    }
+
+    ngOnInit() {
+        this.projectSearchDispatcherService.toggleToolbarSearchVisibility(true);
     }
 
     showEmployeeInfo(event) {

@@ -8,13 +8,14 @@ import { ProductionModule } from './production/production.module';
 import { PersonalAreaModule } from './personal-area/personal-area.module';
 import { DeveloperToolsModule } from './developer-tools/developer-tools.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
+import { ApolloClientModule } from './apollo-client.module';
 import { ApplicationRoutes } from './application.routes';
 import "hammerjs";
 
 import { AppComponent } from './app.component';
 import { ProjectSearchComponent } from './project-search/project-search.component';
 
-import { ProjectSearchService } from './shared/project-search.service';
+import { ProjectSearchDispatcherService } from './dispatcher-services/project-search.dispatcher.service';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,11 @@ import { ProjectSearchService } from './shared/project-search.service';
     DeveloperToolsModule,
     LandingPageModule,
     MaterialDesignLoaderModule,
+    ApolloClientModule,
     ApplicationRoutes
   ],
   providers: [
-    ProjectSearchService
+    ProjectSearchDispatcherService
   ],
   bootstrap: [AppComponent]
 })

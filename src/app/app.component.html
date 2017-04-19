@@ -5,6 +5,12 @@
   <span style="margin-left: 20px;">
     {{dynamicTitle}}
   </span>
+  <div *ngIf="toggleToolbarSearch" [@showToolbarSearchAnimation]="toggleToolbarSearch" class="toolbar-search-project">
+    <md-input-container class="toolbar-input-full-width">
+        <input #toolbarSearchBox mdInput placeholder="Search projects by Name, Job# or Event" [value]="initialSearchValue">
+    </md-input-container>
+    <button md-raised-button color="accent" (click)="searchForProjects(toolbarSearchBox.value)">Search</button>
+  </div>
   <div class="toolbar-right-wrapper">
     <button md-icon-button mdTooltip="Landing Page" (click)="gotoModule('landing-page')">
       <md-icon>home</md-icon>

@@ -5,8 +5,10 @@
         </div>
     </div>
     <div class="paper-main-view">
-        <md-progress-spinner class="example-margin" color="accent" mode="indeterminate">
-    </md-progress-spinner>
+        <md-progress-spinner *ngIf="showLoadingSpinner" class="example-margin" color="accent" mode="indeterminate"></md-progress-spinner>
+        <md-list *ngIf="!showLoadingSpinner">
+            <md-list-item *ngFor="let searchData of displayedSearchData">{{searchData.ProjectName}}</md-list-item>
+        </md-list>
     </div>
     <div class="paper-right-column">
         <div class="right-column-toolbar"></div>

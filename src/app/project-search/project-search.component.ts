@@ -1,12 +1,13 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { ProjectSearchService } from '../shared/project-search.service';
+import { ProjectSearchDispatcherService, SearchModel } from '../dispatcher-services/project-search.dispatcher.service';
+import { ProjectSearchService } from './project-search.service';
 
 @Component({
   selector: 'app-project-search', 
   templateUrl: './project-search.component.html',
   styleUrls: ['./project-search.component.css'],
-  providers: [],
+  providers: [ProjectSearchService],
   animations: [
       trigger('searchOverlayAnimation', [
       state('*', style({
@@ -26,11 +27,53 @@ import { ProjectSearchService } from '../shared/project-search.service';
 })
 export class ProjectSearchComponent {
 
-    @HostBinding('@searchOverlayAnimation') searchOverlayAnimation = true;
+    showLoadingSpinner: Boolean = true;
+    searchDataSubscription: any = null;
+    projectSearchSubscription: any = null;
+    searchInputValue: String = "";
+    displayedSearchData: Array<any> = [];
 
-    constructor(private projectSearchService: ProjectSearchService) {}
+    @HostBinding('@searchOverlayAnimation') searchOverlayAnimation = true;
+    @HostListener('@searchOverlayAnimation.done') animationDone() {}
+
+    constructor(private projectSearchDispatcherService: ProjectSearchDispatcherService, private projectSearchService: ProjectSearchService) {}
+
+    ngOnInit() {
+        this.subscribeToSearchInputStream();
+    }
+
+    subscribeToSearchInputStream() {
+        this.projectSearchSubscription = this.projectSearchDispatcherService
+        .searchValue
+        .subscribe(
+            (value: SearchModel) => {
+                if (typeof value != "undefined") {
+                    if (typeof value.searchInputValue != "undefined") {
+                        this.searchInputValue = value.searchInputValue;
+                        this.searcProjectsByKeyword(this.searchInputValue);
+                    }
+                }
+            },
+            error => console.warn(error)
+        );
+    }
+
+    searcProjectsByKeyword(keyWord: String) {
+        if (!this.showLoadingSpinner) this.showLoadingSpinner = true;
+        this.searchDataSubscription = this.projectSearchService.getProjectsByKeyword(keyWord)
+        .subscribe(queryResult => {
+            this.showLoadingSpinner = false;
+            this.displayedSearchData = queryResult.data.searchForProject;
+        });
+    }
 
     closeProjectSearch() {
-        this.projectSearchService.closeProjectSearchComponent();
+        let getModulePathName = window.location.pathname.replace('/','');
+        this.projectSearchDispatcherService.closeProjectSearchComponent(getModulePathName);
+    }
+    
+    ngOnDestroy() {
+        this.searchDataSubscription.unsubscribe();
+        this.projectSearchSubscription.unsubscribe();
     }
 }

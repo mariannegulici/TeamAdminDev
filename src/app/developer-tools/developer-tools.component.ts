@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ProjectSearchDispatcherService } from '../dispatcher-services/project-search.dispatcher.service';
 
 @Component({
   selector: 'app-developer-tools', 
@@ -8,8 +9,11 @@ import { NgForm } from '@angular/forms';
   providers: [],
   animations: []
 })
-export class DeveloperToolsComponent {
+export class DeveloperToolsComponent implements OnInit {
 
-    constructor() {
+    constructor(private projectSearchDispatcherService: ProjectSearchDispatcherService) {}
+
+    ngOnInit() {
+        this.projectSearchDispatcherService.toggleToolbarSearchVisibility(true);
     }
 }

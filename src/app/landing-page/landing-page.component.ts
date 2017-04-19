@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ProjectSearchService } from '../shared/project-search.service';
+import { Component, OnInit } from '@angular/core';
+import { ProjectSearchDispatcherService } from '../dispatcher-services/project-search.dispatcher.service';
 
 @Component({
   selector: 'app-landing-page', 
@@ -8,12 +8,16 @@ import { ProjectSearchService } from '../shared/project-search.service';
   providers: [],
   animations: []
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
 
-  constructor(private projectSearchService: ProjectSearchService) {}
+  constructor(private projectSearchDispatcherService: ProjectSearchDispatcherService) {}
+
+  ngOnInit() {
+    this.projectSearchDispatcherService.toggleToolbarSearchVisibility(false);
+  }
 
   searchProjects(searchBoxValue) {
     if (searchBoxValue == "") return false;
-    this.projectSearchService.searchInput(searchBoxValue);
+    this.projectSearchDispatcherService.searchInput(searchBoxValue);
   }
 }
