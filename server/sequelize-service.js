@@ -7,6 +7,7 @@ export default new Sequelize( config.mssql.database,
                                 {
                                     host: config.mssql.host,
                                     dialect: 'mssql',
+                                    logging: true,
                                     dialectOptions: {
                                         instanceName: config.mssql.instance
                                     }

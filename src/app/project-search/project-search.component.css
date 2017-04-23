@@ -29,9 +29,10 @@ div.project-search-wrapper .paper-main-view {
     position: relative;
     align-content: center;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     width: 70%;
-    height: 100%;
+    height: calc(100% - 64px);
+    padding: 0px 5px 5px 5px;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.24), 0 0 3px rgba(0, 0, 0, 0.12);
@@ -42,7 +43,39 @@ div.project-search-wrapper .paper-main-view {
 .paper-main-view md-progress-spinner {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.paper-main-view .mat-list {
+    width: 100%;
+    font-size: 13px;
+}
+
+.mat-list .mat-list-item {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 5px;
+}
+
+.mat-list .mat-list-item .mat-line {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.mat-list .mat-list-item span.md-line-title {
+    font-weight: normal;
+    margin-right: 5px;
+    color: #666;
+}
+
+.mat-list .mat-list-item span.md-line-box {
+    display: inline-block;
+    width: 33.3%;
+}
+
+.mat-list .mat-list-item:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 div.project-search-wrapper .paper-right-column {

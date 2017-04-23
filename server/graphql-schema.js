@@ -68,6 +68,58 @@ const schema = `
         InfoComments: String
         ProductOffering: String
         JobBookCoding: String
+        TeamInfo: ProjectTeam
+    }
+
+    type ProjectTeam {
+        PrjTeamID: Int!
+        ProjectID: Int!
+        LastAction: String
+        LastActionDoer: String
+        LastActionTime: String
+        Dropped: Int
+        PM: String
+        PMTeam: String
+        PMSecond: String
+        PMSecondTeam: String
+        SW: String
+        SWTeam: String
+        SWSecond: String
+        SWSecondTeam: String
+        QA: String
+        QATeam: String
+        QASecond: String
+        QASecondTeam: String
+        DP: String
+        DPTeam: String
+        DPSecond: String
+        DPSecondTeam: String
+        QE: String
+        QETeam: String
+        MP: String
+        MPTeam: String
+        CO: String
+        COTeam: String
+        DO: String
+        DOTeam: String
+        FC: String
+        FCTeam: String
+        ExtSW: String
+        ExtSWTeam: String
+        ExtQA: String
+        ExtQATeam: String
+        ExtDP: String
+        ExtDPTeam: String
+        REP: String
+        REPTeam: String
+        REPSecond: String
+        REPSecondTeam: String
+        REPQA: String
+        REPQATeam: String
+        ExtREP: String
+        ExtREPTeam: String
+        FCSecond: String
+        FCSecondTeam: String
     }
 
     type Query {

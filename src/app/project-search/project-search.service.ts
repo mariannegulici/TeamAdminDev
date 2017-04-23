@@ -11,7 +11,17 @@ export class ProjectSearchService {
     searchForProjectProfile = gql`
         query searchForProjectProfile($keyWord: String!){
         searchForProject(keyWord: $keyWord){
+            ProjectID
             ProjectName
+            EventNo
+            ProjectFolder
+            JobBookNo
+            ProjectStatus
+            TeamInfo {
+                SW
+                QA
+                PM
+                }
             }
         }
     `;

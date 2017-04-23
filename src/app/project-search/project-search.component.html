@@ -7,7 +7,20 @@
     <div class="paper-main-view">
         <md-progress-spinner *ngIf="showLoadingSpinner" class="example-margin" color="accent" mode="indeterminate"></md-progress-spinner>
         <md-list *ngIf="!showLoadingSpinner">
-            <md-list-item *ngFor="let searchData of displayedSearchData">{{searchData.ProjectName}}</md-list-item>
+            <md-list-item *ngFor="let searchData of displayedSearchData">
+                <md-icon md-list-icon>info_outline</md-icon>
+                <span md-line><span class="md-line-title">Project Name:</span>{{searchData.ProjectName}}</span>
+                <span md-line>
+                    <span class="md-line-box"><span class="md-line-title">Project Status:</span>{{searchData.ProjectStatus}}</span>
+                    <span class="md-line-box"><span class="md-line-title">JobBook No:</span>{{searchData.JobBookNo}}</span>
+                    <span class="md-line-box"><span class="md-line-title">Event No:</span>{{searchData.EventNo}}</span>
+                </span>
+                <span md-line>
+                    <span class="md-line-box"><span class="md-line-title">PM:</span>{{searchData.TeamInfo.PM}}</span>
+                    <span class="md-line-box"><span class="md-line-title">SW:</span>{{searchData.TeamInfo.SW}}</span>
+                    <span class="md-line-box"><span class="md-line-title">QA:</span>{{searchData.TeamInfo.QA}}</span>
+                </span>
+            </md-list-item>
         </md-list>
     </div>
     <div class="paper-right-column">

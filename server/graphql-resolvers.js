@@ -1,34 +1,38 @@
 import * as Models from './sequelize-models';
+import extractQueryColumns from './server-utilities';
 
 const GraphQlresolvers = {
     Query: {
-        teams() {
-            console.log('teams resolve run');
-            return Models.Team.findAll({attributes: { exclude: ['updatedAt','createdAt'] } });
-            //return connection.query("SELECT * FROM dbo.TeamDetails", { type: connection.QueryTypes.SELECT });
+        teams(obj, args, context, info) {
+            return Models.Team.findAll();
         },
-        employeeByWinUser(_, args) {
-            return Models.Headcount.findAll({ where: { WindowsUser: args.user }, attributes: { exclude: ['updatedAt','createdAt'] }, raw: true })
+        employeeByWinUser(obj, args, context, info) {
+            return Models.Headcount.findAll({ attributes: extractQueryColumns(info), where: { WindowsUser: args.user }, raw: true })
             .then(result=>{
                 return result[0]; // must be done in this way for function that must return 1 object, because of MS SQL
             });
         },
-        employees() {
-            console.log('headcount resolve run');
-            return Models.Headcount.findAll({ attributes: { exclude: ['updatedAt','createdAt'] } });
+        employees(obj, args, context, info) {
+            return Models.Headcount.findAll();
         },
-        projectsForTeam(_, args) {
+        projectsForTeam(obj, args, context, info) {
             return Models.Projects.findAll({ where: { OwnerTeam: args.OwnerName } });
         },
-        searchForProject(_, args) {
-            return Models.Projects.findAll({ where: { $or:[
+        searchForProject(obj, args, context, info) {
+            console.log(Date.now());
+            return Models.Projects.findAll({ attributes: extractQueryColumns(info), where: { $or:[
                 { ProjectName: 
                     { $like: '%' + args.keyWord + '%' } }, // search for Project Name
                 { JobBookNo: 
                     { $like: '%' + args.keyWord + '%' } }, // search for Job Book Number
                 { EventNo: 
                     { $like: '%' + args.keyWord + '%' } } // search for Event Number
-            ] } });
+            ] }, raw: true });
+        }
+    },
+    Project: {
+        TeamInfo(Project, args, context, info) {
+            return context.projectTeam.getTeamInfo(Project.ProjectID, info);
         }
     }
 }

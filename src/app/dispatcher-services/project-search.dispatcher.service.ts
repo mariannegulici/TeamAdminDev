@@ -34,6 +34,7 @@ export class ProjectSearchDispatcherService {
 
         if (moduleName === 'landing-page') searchModel.showHideToolbarSearch = false;
         searchModel.showHideSearchComponent = false;
+        searchModel.searchInputValue = ""; //reset input value
         this._searchValue.next(searchModel);
     }
 

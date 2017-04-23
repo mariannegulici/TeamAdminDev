@@ -260,4 +260,207 @@ var Projects = conn.define('Projects', {
     }
 );
 
-export { Team, Headcount, Projects };
+var ProjectTeam = conn.define('PrjTeam', {
+    PrjTeamID: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    ProjectID: {
+        type: Sequelize.INTEGER,
+        field: 'ProjectID'
+    },
+    LastAction: {
+        type: Sequelize.STRING,
+        field: 'LastAction'
+    },
+    LastActionDoer: {
+        type: Sequelize.STRING,
+        field: 'LastActionDoer'
+    },
+    LastActionTime: {
+        type: Sequelize.DATE,
+        field: 'LastActionTime'
+    },
+    Dropped: {
+        type: Sequelize.INTEGER,
+        field: 'Dropped'
+    },
+    PM: {
+        type: Sequelize.STRING,
+        field: 'PM'
+    },
+    PMTeam: {
+        type: Sequelize.STRING,
+        field: 'PMTeam'
+    },
+    PMSecond: {
+        type: Sequelize.STRING,
+        field: 'PMSecond'
+    },
+    PMSecondTeam: {
+        type: Sequelize.STRING,
+        field: 'PMSecondTeam'
+    },
+    SW: {
+        type: Sequelize.STRING,
+        field: 'SW'
+    },
+    SWTeam: {
+        type: Sequelize.STRING,
+        field: 'SWTeam'
+    },
+    SWSecond: {
+        type: Sequelize.STRING,
+        field: 'SWSecond'
+    },
+    SWSecondTeam: {
+        type: Sequelize.STRING,
+        field: 'SWSecondTeam'
+    },
+    QA: {
+        type: Sequelize.STRING,
+        field: 'QA'
+    },
+    QATeam: {
+        type: Sequelize.STRING,
+        field: 'QATeam'
+    },
+    QASecond: {
+        type: Sequelize.STRING,
+        field: 'QASecond'
+    },
+    QASecondTeam: {
+        type: Sequelize.STRING,
+        field: 'QASecondTeam'
+    },
+    DP: {
+        type: Sequelize.STRING,
+        field: 'DP'
+    },
+    DPTeam: {
+        type: Sequelize.STRING,
+        field: 'DPTeam'
+    },
+    DPSecond: {
+        type: Sequelize.STRING,
+        field: 'DPSecond'
+    },
+    DPSecondTeam: {
+        type: Sequelize.STRING,
+        field: 'DPSecondTeam'
+    },
+    QE: {
+        type: Sequelize.STRING,
+        field: 'QE'
+    },
+    QETeam: {
+        type: Sequelize.STRING,
+        field: 'QETeam'
+    },
+    MP: {
+        type: Sequelize.STRING,
+        field: 'MP'
+    },
+    MPTeam: {
+        type: Sequelize.STRING,
+        field: 'MPTeam'
+    },
+    CO: {
+        type: Sequelize.STRING,
+        field: 'CO'
+    },
+    COTeam: {
+        type: Sequelize.STRING,
+        field: 'COTeam'
+    },
+    DO: {
+        type: Sequelize.STRING,
+        field: 'DO'
+    },
+    DOTeam: {
+        type: Sequelize.STRING,
+        field: 'DOTeam'
+    },
+    FC: {
+        type: Sequelize.STRING,
+        field: 'FC'
+    },
+    FCTeam: {
+        type: Sequelize.STRING,
+        field: 'FCTeam'
+    },
+    ExtSW: {
+        type: Sequelize.STRING,
+        field: 'ExtSW'
+    },
+    ExtSWTeam: {
+        type: Sequelize.STRING,
+        field: 'ExtSWTeam'
+    },
+    ExtQA: {
+        type: Sequelize.STRING,
+        field: 'ExtQA'
+    },
+    ExtQATeam: {
+        type: Sequelize.STRING,
+        field: 'ExtQATeam'
+    },
+    ExtDP: {
+        type: Sequelize.STRING,
+        field: 'ExtDP'
+    },
+    ExtDPTeam: {
+        type: Sequelize.STRING,
+        field: 'ExtDPTeam'
+    },
+    REP: {
+        type: Sequelize.STRING,
+        field: 'REP'
+    },
+    REPTeam: {
+        type: Sequelize.STRING,
+        field: 'REPTeam'
+    },
+    REPSecond: {
+        type: Sequelize.STRING,
+        field: 'REPSecond'
+    },
+    REPSecondTeam: {
+        type: Sequelize.STRING,
+        field: 'REPSecondTeam'
+    },
+    REPQA: {
+        type: Sequelize.STRING,
+        field: 'REPQA'
+    },
+    REPQATeam: {
+        type: Sequelize.STRING,
+        field: 'REPQATeam'
+    },
+    ExtREP: {
+        type: Sequelize.STRING,
+        field: 'ExtREP'
+    },
+    ExtREPTeam: {
+        type: Sequelize.STRING,
+        field: 'ExtREPTeam'
+    },
+    FCSecond: {
+        type: Sequelize.STRING,
+        field: 'FCSecond'
+    },
+    FCSecondTeam: {
+        type: Sequelize.STRING,
+        field: 'FCSecondTeam'
+    }
+},
+    {
+        tableName: 'PrjTeam',
+        timestamps: false
+    }
+);
+
+ProjectTeam.belongsTo(Projects, {foreignKey: 'ProjectID'});
+
+export { Team, Headcount, Projects, ProjectTeam };
