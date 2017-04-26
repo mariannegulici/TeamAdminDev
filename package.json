@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "clean": "rm -rf build-server && mkdir build-server",
+    "build-server": "babel -d ./build-server ./server.js -s",
+    "build-prod-server": "npm run clean && npm run build-server",
     "ng": "ng",
     "build": "ng build",
     "start-server": "node server.js",

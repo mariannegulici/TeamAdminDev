@@ -14,13 +14,18 @@ import "hammerjs";
 
 import { AppComponent } from './app.component';
 import { ProjectSearchComponent } from './project-search/project-search.component';
+import { ProjectsSearchOptionsComponent } from './project-search/search-options.component';
 
 import { ProjectSearchDispatcherService } from './dispatcher-services/project-search.dispatcher.service';
+import { ClipboardService } from './shared/clipboard.service';
+import { ClipboardDirective } from './shared/clipboard.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectSearchComponent
+    ProjectSearchComponent,
+    ProjectsSearchOptionsComponent,
+    ClipboardDirective
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { ProjectSearchDispatcherService } from './dispatcher-services/project-se
     ApplicationRoutes
   ],
   providers: [
-    ProjectSearchDispatcherService
+    ProjectSearchDispatcherService,
+    ClipboardService
   ],
   bootstrap: [AppComponent]
 })

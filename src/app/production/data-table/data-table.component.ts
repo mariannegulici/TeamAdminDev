@@ -20,7 +20,7 @@ export class DataTableComponent implements OnInit {
     set assignmentFromMembers(assignmentFromMembers: Array<any>){
         this.taskAssignStack = assignmentFromMembers;
     }
-    @Output() assignmentStack = new EventEmitter<Array<any>>(); 
+    @Output() assignmentStack = new EventEmitter<Array<any>>();
     /**
      * Immutable List that stores all of the table data
      * @type {List<any>}

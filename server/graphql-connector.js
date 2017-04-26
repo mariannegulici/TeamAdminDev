@@ -4,6 +4,8 @@ import extractQueryColumns from './server-utilities';
 
 /**
  * Used as a DataLoader instance wrapper
+ * 
+ * @class GraphqlConnector
  */
 export class GraphqlConnector {
 
@@ -63,11 +65,28 @@ export class GraphqlConnector {
     }
 }
 
+/**
+ * Middleware class that bridges the @GraphqlConnector class and the Graphql resolvers
+ * 
+ * @class TeamInfo
+ */
 export class TeamInfo {
+    /**
+     * Creates an instance of TeamInfo.
+     * 
+     * @param {any} connector -> instance of @GraphqlConnector class
+     */
     constructor(connector) {
         this.connector = connector;
     }
 
+    /**
+     * Passes the projectIDs to the DataLoader through the @loadKey function in the GraphqlConnector instance
+     * 
+     * @param {any} projectID -> the projectID
+     * @param {any} resolverInfo -> Graphql @info parameter passed to each resolver
+     * @returns -> coalesced data received from GraphqlConnector @loadKey function
+     */
     getTeamInfo(projectID, resolverInfo) {
         return this.connector.loadKey(projectID, resolverInfo);
     }

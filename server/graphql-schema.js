@@ -1,5 +1,4 @@
 import { makeExecutableSchema } from 'graphql-tools';
-
 import resolvers from './graphql-resolvers';
 
 const schema = `

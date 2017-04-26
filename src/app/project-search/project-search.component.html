@@ -3,25 +3,53 @@
         <div class="left-column-toolbar">
             <span>Search Options</span>
         </div>
+        <button md-raised-button (click)="showSearchOptions()" color="accent" [disabled]="showSearchOptionsToggle">
+            <md-icon>settings</md-icon>
+            Search Options</button>
     </div>
     <div class="paper-main-view">
-        <md-progress-spinner *ngIf="showLoadingSpinner" class="example-margin" color="accent" mode="indeterminate"></md-progress-spinner>
-        <md-list *ngIf="!showLoadingSpinner">
-            <md-list-item *ngFor="let searchData of displayedSearchData">
-                <md-icon md-list-icon>info_outline</md-icon>
-                <span md-line><span class="md-line-title">Project Name:</span>{{searchData.ProjectName}}</span>
-                <span md-line>
-                    <span class="md-line-box"><span class="md-line-title">Project Status:</span>{{searchData.ProjectStatus}}</span>
-                    <span class="md-line-box"><span class="md-line-title">JobBook No:</span>{{searchData.JobBookNo}}</span>
-                    <span class="md-line-box"><span class="md-line-title">Event No:</span>{{searchData.EventNo}}</span>
-                </span>
-                <span md-line>
-                    <span class="md-line-box"><span class="md-line-title">PM:</span>{{searchData.TeamInfo.PM}}</span>
-                    <span class="md-line-box"><span class="md-line-title">SW:</span>{{searchData.TeamInfo.SW}}</span>
-                    <span class="md-line-box"><span class="md-line-title">QA:</span>{{searchData.TeamInfo.QA}}</span>
-                </span>
-            </md-list-item>
-        </md-list>
+        <div *ngIf="showSearchResultsToggle"
+        [@showSearchResultsAnimation]="showSearchResultsToggle"
+        (@showSearchResultsAnimation.done)="showSearchResultsAnimationEnded($event)"
+        class="paper-main-view-wrapper">
+            <md-progress-spinner *ngIf="showLoadingSpinner" class="example-margin" color="accent" mode="indeterminate"></md-progress-spinner>
+            <div class="project-search-header">
+                <div class="search-header-container left-container">
+                    <span>Search results for:<span class="search-header-value">{{searchInputValue}}</span></span>
+                </div>
+                <div class="search-header-container right-container">
+                    <div class="right-container-wrapper">
+                        <span id="clipboard-text">Click to copy search values</span>
+                        <md-icon id="clipboard-icon" mdTooltip="If this feature is enabled, when you click on a Search result individual value, it will copy it to the OS Clipboard, thus making copy / paste of information much easier !">info</md-icon>
+                        <md-slide-toggle color="accent" checked="true" (change)="toggleCopyClipboard($event)" [ngSwitch]="copyToClipboard">
+                            <span *ngSwitchCase="false">Enable!</span>
+                            <span *ngSwitchCase="true">Disable!</span>
+                            <span *ngSwitchDefault></span>
+                        </md-slide-toggle>
+                    </div>
+                </div>
+            </div>
+            <md-list *ngIf="!showLoadingSpinner">
+                <md-list-item *ngFor="let searchData of displayedSearchData, let i=index" (mouseenter)="toggleProjectActions(i)">
+                    <span md-line><span class="md-line-title">Project Name:</span><span class="md-line-value" [clipboard]="copyToClipboard">{{searchData.searchValue.ProjectName}}</span></span>
+                    <span md-line>
+                        <span class="md-line-box"><span class="md-line-title">Project Status:</span><span class="md-line-value" [clipboard]="copyToClipboard">{{searchData.searchValue.ProjectStatus}}</span></span>
+                        <span class="md-line-box"><span class="md-line-title">JobBook No:</span><span class="md-line-value" [clipboard]="copyToClipboard">{{searchData.searchValue.JobBookNo}}</span></span>
+                        <span class="md-line-box"><span class="md-line-title">Event No:</span><span class="md-line-value" [clipboard]="copyToClipboard">{{searchData.searchValue.EventNo}}</span></span>
+                    </span>
+                    <span md-line>
+                        <span class="md-line-box"><span class="md-line-title">PM:</span><span class="md-line-value" [clipboard]="copyToClipboard">{{searchData.searchValue.TeamInfo.PM}}</span></span>
+                        <span class="md-line-box"><span class="md-line-title">SW:</span><span class="md-line-value" [clipboard]="copyToClipboard">{{searchData.searchValue.TeamInfo.SW}}</span></span>
+                        <span class="md-line-box"><span class="md-line-title">QA:</span><span class="md-line-value" [clipboard]="copyToClipboard">{{searchData.searchValue.TeamInfo.QA}}</span></span>
+                    </span>
+                    <ng-container *ngIf="searchData.showActions">
+                        <button class="add-project-task" [@showActionButtonsAnimation] md-icon-button mdTooltip="Add new task to project" mdTooltipPosition="after"><md-icon>add_box</md-icon></button>
+                        <button class="view-project-details" [@showActionButtonsAnimation] md-icon-button mdTooltip="View project details" mdTooltipPosition="after"><md-icon>assignment</md-icon></button>
+                    </ng-container>
+                </md-list-item>
+            </md-list>
+        </div>
+        <project-search-options *ngIf="showSearchOptionsToggle" (closeOptions)="closeSearchOptions($event)" (closeOptionsAnimationDone)="closeSearchOptionsAnimationsDone($event)"></project-search-options>
     </div>
     <div class="paper-right-column">
         <div class="right-column-toolbar"></div>

@@ -16,8 +16,9 @@ export class LandingPageComponent implements OnInit {
     this.projectSearchDispatcherService.toggleToolbarSearchVisibility(false);
   }
 
-  searchProjects(searchBoxValue) {
-    if (searchBoxValue == "") return false;
-    this.projectSearchDispatcherService.searchInput(searchBoxValue);
+  searchProjects(searchBox) {
+    if (searchBox.value == "") return false;
+    this.projectSearchDispatcherService.searchInput(searchBox.value);
+    searchBox.value = "";
   }
 }

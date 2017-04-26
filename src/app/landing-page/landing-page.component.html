@@ -2,7 +2,7 @@
     <md-input-container class="input-full-width">
         <input #landingPageSearchBox mdInput placeholder="Search projects by Name, Job# or Event" value="">
     </md-input-container>
-    <button md-raised-button color="accent" (click)="searchProjects(landingPageSearchBox.value)">Search</button>
+    <button md-raised-button color="accent" (click)="searchProjects(landingPageSearchBox)">Search</button>
     <div class="card-wrapper">
         <a class="lp-card" routerLink="/personal-area">
             <div class="card-image">
