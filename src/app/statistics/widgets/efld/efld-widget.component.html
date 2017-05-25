@@ -1,0 +1,54 @@
+<div class="efld-widget-wrapper">
+    <dx-pie-chart
+        id="pie1"
+        title="EFLD rapport"
+        palette="vintage"
+        [dataSource]="EFLDChartData">
+        <dxo-legend
+            orientation="horizontal"
+            itemTextPosition="right"
+            horizontalAlignment="right"
+            verticalAlignment="bottom"
+            [columnCount]="2"></dxo-legend>
+        <dxo-export [enabled]="true"></dxo-export>
+        <dxi-series
+            argumentField="EFLDYesNo"
+            valueField="total">
+            <dxo-label
+                [visible]="true"
+                position="columns"
+                [customizeText]="customizeLabel">
+                <dxo-font [size]="16"></dxo-font>
+                <dxo-connector
+                    [visible]="true"
+                    [width]="0.5"></dxo-connector>
+            </dxo-label>
+        </dxi-series>
+    </dx-pie-chart>
+    <dx-pie-chart
+        id="pie2"
+        title="Diary completion rate"
+        palette="ocean"
+        [dataSource]="DiaryCompletionChartData">
+        <dxo-legend
+            orientation="horizontal"
+            itemTextPosition="right"
+            horizontalAlignment="right"
+            verticalAlignment="bottom"
+            [columnCount]="2"></dxo-legend>
+        <dxo-export [enabled]="true"></dxo-export>
+        <dxi-series
+            argumentField="DiaryYesNo"
+            valueField="total">
+            <dxo-label
+                [visible]="true"
+                position="columns"
+                [customizeText]="customizeLabel">
+                <dxo-font [size]="16"></dxo-font>
+                <dxo-connector
+                    [visible]="true"
+                    [width]="0.5"></dxo-connector>
+            </dxo-label>
+        </dxi-series>
+    </dx-pie-chart>
+</div>

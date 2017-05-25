@@ -8,7 +8,7 @@ var compression = require('compression');
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import config from './server/server-config';
 import GraphQlSchema from './server/graphql-schema';
-import { GraphqlConnector, TeamInfo } from './server/graphql-connector';
+import { GraphqlConnector, TeamInfo, TimingInfo, DiaryInfo } from './server/graphql-connector';
 
 
 /**
@@ -46,6 +46,8 @@ app.use('/graphql',
             schema: GraphQlSchema,
             context: {
                 projectTeam: new TeamInfo(graphqlConnector),
+                projectTiming: new TimingInfo(graphqlConnector),
+                projectDiary: new DiaryInfo(graphqlConnector),
             },
         };
 }));

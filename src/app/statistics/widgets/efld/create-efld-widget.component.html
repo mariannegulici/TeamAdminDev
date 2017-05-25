@@ -1,0 +1,24 @@
+<div class="create-efld-widget-wrapper">
+    <form class="new-widget-form" (ngSubmit)="onSubmit(addNewWidget,$event)" #addNewWidget="ngForm">
+        <md-input-container>
+            <input mdInput type="text" placeholder="Widget name" required ngModel name="name" autocomplete="off">
+        </md-input-container>
+        <md-select placeholder="Select Team" ngModel name="selectedTeam" required>
+            <md-option *ngFor="let teamData of displayedTeamsData" [value]="teamData.TeamName">{{teamData.TeamName}}</md-option>
+        </md-select>
+        <md-input-container>
+            <input mdInput [mdDatepicker]="StartDateDatepicker" required placeholder="Start date" ngModel name="start_date">
+            <button type="button" mdSuffix [mdDatepickerToggle]="StartDateDatepicker"></button>
+        </md-input-container>
+        <md-datepicker #StartDateDatepicker></md-datepicker>
+        <md-input-container>
+            <input mdInput [mdDatepicker]="EndDateDatepicker" required placeholder="End date" ngModel name="end_date">
+            <button type="button" mdSuffix [mdDatepickerToggle]="EndDateDatepicker"></button>
+        </md-input-container>
+        <md-datepicker #EndDateDatepicker></md-datepicker>
+        <div class="new-team-form-actions">
+            <button md-raised-button class="personal-info-form-submit" type="submit" [disabled]="!addNewWidget.form.valid" color="accent"><md-icon class="personal-info-form-icon">save</md-icon>Add widget</button>
+            <button md-raised-button type="reset" color="accent"><md-icon class="personal-info-form-icon">cancel</md-icon>Reset form</button>
+        </div>
+    </form>
+</div>

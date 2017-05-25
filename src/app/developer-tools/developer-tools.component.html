@@ -1,7 +1,7 @@
 <div class="developer-tools-wrapper">
     <div class="paper-left-column">
         <div class="left-column-toolbar">
-            <span>Available Options</span>
+            <span>Developer Tools</span>
         </div>
         <md-list>
             <h3 md-subheader>Personal Area</h3>
@@ -16,6 +16,10 @@
             <md-list-item>
                 <md-icon md-list-avatar>settings</md-icon>
                 <h4 md-line>Status</h4>
+            </md-list-item>
+            <md-list-item (click)="showTeamsForm()">
+                <md-icon md-list-avatar>settings</md-icon>
+                <h4 md-line>Available Teams</h4>
             </md-list-item>
             <md-divider></md-divider>
             <h3 md-subheader>Another Module</h3>
@@ -36,11 +40,32 @@
     </div>
     <div class="paper-main-view">
         <md-grid-list cols="2" rowHeight="100%">
-            <md-grid-tile [style.backgroundColor]="red">
-                1
+            <md-grid-tile>
+                <md-progress-spinner *ngIf="showLoadingSpinner" color="accent" mode="indeterminate"></md-progress-spinner>
+                <div *ngIf="showTeamsToggle" class="teams-wrapper form-wrapper">
+                    <form class="new-team-form" (ngSubmit)="onSubmit(addNewTeam,$event)" #addNewTeam="ngForm">
+                        <md-input-container>
+                            <input mdInput type="text" placeholder="Team Name" required ngModel name="name" autocomplete="off">
+                        </md-input-container>
+                        <div class="new-team-form-actions">
+                            <button md-raised-button class="personal-info-form-submit" type="submit" [disabled]="!addNewTeam.form.valid" color="accent"><md-icon class="personal-info-form-icon">save</md-icon>Add Team</button>
+                            <button md-raised-button type="reset" color="accent"><md-icon class="personal-info-form-icon">cancel</md-icon>Reset changes</button>
+                        </div>
+                    </form>
+                </div>
             </md-grid-tile>
             <md-grid-tile>
-                2
+                <md-progress-spinner *ngIf="showLoadingSpinner" color="accent" mode="indeterminate"></md-progress-spinner>
+                <div *ngIf="showTeamsToggle" class="teams-wrapper">
+                    <md-list>
+                        <h3 md-subheader>Teams</h3>
+                        <md-list-item *ngFor="let teamData of displayedTeamsData">
+                            <md-icon md-list-avatar mdTooltip="Edit Team">mode_edit</md-icon>
+                            <md-icon md-list-avatar mdTooltip="Delete Team">delete</md-icon>
+                            <h4 md-line>{{teamData.TeamName}}</h4>
+                        </md-list-item>
+                    </md-list>
+                </div>
             </md-grid-tile>
         </md-grid-list>
     </div>

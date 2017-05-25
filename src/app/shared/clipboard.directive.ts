@@ -34,6 +34,7 @@ export class ClipboardDirective {
 
     // I copy the value-input to the Clipboard. Emits success or error event.
     public copyToClipboard() : void {
+        console.log(this.executeDirective);
         if (this.executeDirective) {
             this.value = this.elementRef.nativeElement.innerText;
             this.clipboardService

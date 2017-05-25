@@ -1,0 +1,17 @@
+.create-efld-widget-wrapper {
+
+}
+
+.create-efld-widget-wrapper .new-widget-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-widget-form .mat-input-container, .mat-select {
+    width: 300px;
+}
+
+.new-widget-form .mat-select {
+    margin-top§: 15px;
+    margin-bottom: 15px;
+}

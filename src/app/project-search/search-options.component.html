@@ -1,5 +1,14 @@
 <div class="search-options-wrapper">
     <div class="search-options-header">
-        <button md-icon-button (click)="closeSearchOptions()"><md-icon>arrow_back</md-icon></button>
+        <div class="options-header">
+            <div class="options-header-line"></div>
+        </div>
+        <button id="options-back-button" md-icon-button (click)="closeSearchOptions()" mdTooltip="Close Search Options"><md-icon>reply</md-icon></button>
+        <div class="options-header">
+            <div class="options-header-line"></div>
+        </div>
+        <div class="options-header header-title">
+            <span>Define your custom search preferences</span>
+        </div>
     </div>
 </div>

@@ -15,10 +15,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         style({
           transform: 'translateX(-100%)'
         }),
-        animate('.6s cubic-bezier(0.23, 1, 0.32, 1)')
+        animate('.5s cubic-bezier(0.23, 1, 0.32, 1)')
       ]),
       transition(':leave' , [
-        animate( '.6s cubic-bezier(0.215, 0.61, 0.355, 1)', style({ transform: 'translateX(-100%)' }) )
+        animate( '.5s cubic-bezier(0.215, 0.61, 0.355, 1)', style({ transform: 'translateX(-100%)' }) )
       ])
     ])
   ]
@@ -45,6 +45,6 @@ export class ProjectsSearchOptionsComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         console.log("SearchOptions disabled");
-        //this.animationDone();
+        this.animationDone();
     }
 }

@@ -1,0 +1,15 @@
+div.efld-widget-wrapper {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.efld-widget-wrapper dx-pie-chart {
+    width: 50%;
+}
+
+.efld-widget-wrapper /deep/ #pie1, #pie2 {
+    height: 300px;
+}

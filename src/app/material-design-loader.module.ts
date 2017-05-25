@@ -13,7 +13,9 @@ import {
     MdTooltipModule,
     MdSnackBarModule,
     MdProgressSpinnerModule,
-    MdSlideToggleModule
+    MdSlideToggleModule,
+    MdDatepickerModule,
+    MdNativeDateModule
  } from '@angular/material';
 
 @NgModule({
@@ -31,7 +33,9 @@ import {
         MdTooltipModule,
         MdSnackBarModule,
         MdProgressSpinnerModule,
-        MdSlideToggleModule
+        MdSlideToggleModule,
+        MdDatepickerModule,
+        MdNativeDateModule
     ],
     exports: [
         BrowserAnimationsModule,
@@ -47,7 +51,9 @@ import {
         MdTooltipModule,
         MdSnackBarModule,
         MdProgressSpinnerModule,
-        MdSlideToggleModule
+        MdSlideToggleModule,
+        MdDatepickerModule,
+        MdNativeDateModule
     ]
 })
 export class MaterialDesignLoaderModule {}

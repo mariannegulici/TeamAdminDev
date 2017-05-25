@@ -1,0 +1,19 @@
+<div class="widgets-wrapper">
+    <div class="widgets-header">
+        <div id="widgets-back-button">
+            <button *ngIf="!showWidgetsSelectionScreen" md-icon-button (click)="backToWidgetsSelectionScreen()" mdTooltip="Back to Available Widgets"><md-icon>reply</md-icon></button>
+        </div>
+        <span class="widgets-header-title">{{widgetsHeaderTitle}}</span>
+    </div>
+    <div *ngIf="showWidgetsSelectionScreen" class="widgets-container">
+        <div class="widget-template" (click)="showWidgetCreateScreen('efld')">
+            <div class="widget-template-title">
+                EFLD Report
+            </div>
+            <div class="widget-template-content">
+                <img src="assets/img/100x100/statistics_efld.png" alt="">
+            </div>
+        </div>
+    </div>
+    <create-widget-efld *ngIf="showCreateEfldWidget" class="widgets-container widget-form"></create-widget-efld>
+</div>

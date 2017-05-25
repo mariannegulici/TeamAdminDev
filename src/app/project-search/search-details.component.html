@@ -1,0 +1,88 @@
+<md-progress-spinner *ngIf="showLoadingSpinner" class="example-margin" color="accent" mode="indeterminate"></md-progress-spinner>
+<div class="search-details-header">
+    <div class="details-header">
+        <div class="details-header-line"></div>
+    </div>
+    <button id="details-back-button" md-icon-button (click)="closeSearchDetails()" mdTooltip="Close Project Details"><md-icon>reply</md-icon></button>
+    <div class="details-header">
+        <div class="details-header-line"></div>
+    </div>
+    <div class="details-header header-title-wrapper">
+        <div class="header-title">
+            <span class="static-text">Project Details for:</span><span class="header-title-projectName" title="{{projectName}}">{{projectName}}</span>
+        </div>
+    </div>
+</div>
+<div *ngIf="!showLoadingSpinner" class="details-list-wrapper">
+    <md-list>
+        <h3 md-subheader>General Information</h3>
+        <md-list-item>
+            <div md-line>
+                <span class="md-line-title">Project Name:</span><span class="md-line-value">{{displayedProjectData.ProjectName}}</span>
+            </div>
+            <div md-line>
+                <span class="md-line-box"><span class="md-line-title">Lead Record:</span><span class="md-line-value">{{displayedProjectData.LeadRec}}</span></span>
+                <span class="md-line-box"><span class="md-line-title">Diary Required:</span><span class="md-line-value">{{displayedProjectData.DiaryOrNot}}</span></span>
+            </div>
+            <div md-line>
+                <span class="md-line-box"><span class="md-line-title">Project Status:</span><span class="md-line-value">{{displayedProjectData.ProjectStatus}}</span></span>
+                <span class="md-line-box"><span class="md-line-title">Project Type:</span><span class="md-line-value">{{displayedProjectData.ProjectType}}</span></span>
+            </div>
+            <div md-line>
+                <span class="md-line-box"><span class="md-line-title">Client:</span><span class="md-line-value">{{displayedProjectData.Client}}</span></span>
+                <span class="md-line-box"><span class="md-line-title">Field Country:</span><span class="md-line-value">{{displayedProjectData.FieldCountry}}</span></span>
+            </div>
+            <div md-line>
+                <span class="md-line-box"><span class="md-line-title">JobBook No:</span><span class="md-line-value">{{displayedProjectData.JobBookNo}}</span></span>
+                <span class="md-line-box"><span class="md-line-title">Event No:</span><span class="md-line-value">{{displayedProjectData.EventNo}}</span></span>
+            </div>
+            <div md-line>
+                <span class="md-line-title">Project Folder:</span><span class="md-line-value">{{displayedProjectData.ProjectFolder}}</span>
+            </div>
+            <div md-line>
+                <p>{{displayedProjectData.InfoComments}}</p>
+            </div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <h3 md-subheader>Project Timings</h3>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test</h4>
+        </md-list-item>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test 2</h4>
+        </md-list-item>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test 3</h4>
+        </md-list-item>
+        <md-divider></md-divider>
+        <h3 md-subheader>Project Teams</h3>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test</h4>
+        </md-list-item>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test 2</h4>
+        </md-list-item>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test 3</h4>
+        </md-list-item>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test</h4>
+        </md-list-item>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test 2</h4>
+        </md-list-item>
+        <md-list-item>
+            <md-icon md-list-avatar>settings</md-icon>
+            <h4 md-line>Test 3</h4>
+        </md-list-item>
+        <md-divider></md-divider>
+    </md-list>
+</div>

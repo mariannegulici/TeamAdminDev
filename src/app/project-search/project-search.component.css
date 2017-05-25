@@ -105,6 +105,16 @@ div.project-search-wrapper .paper-main-view {
     background: #fff;
 }
 
+.paper-main-view project-search-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 13;
+    background: #fff;
+}
+
 .paper-main-view-wrapper md-progress-spinner {
     position: absolute;
     top: 50%;

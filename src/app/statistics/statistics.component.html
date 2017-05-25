@@ -1,0 +1,28 @@
+<div class="statistics-wrapper">
+    <div class="paper-left-column">
+        <div class="left-column-toolbar">
+            <span>Statistics Dashboard</span>
+        </div>
+        <md-list>
+            <h3 md-subheader>Actions</h3>
+            <md-list-item>
+                <md-icon md-list-avatar>multiline_chart</md-icon>
+                <h4 md-line>Custom Report</h4>
+            </md-list-item>
+            <md-list-item (click)="showWidgetsSelection()">
+                <md-icon md-list-avatar>widgets</md-icon>
+                <h4 md-line>Add new widget</h4>
+            </md-list-item>
+            <md-divider></md-divider>
+            <h3 md-subheader>Widgets</h3>
+            <md-list-item (click)="showCustomWidget()">
+                <md-icon md-list-avatar>pie_chart</md-icon>
+                <h4 md-line>My custom widget</h4>
+            </md-list-item>
+        </md-list>
+    </div>
+    <div class="paper-main-view">
+        <widgets *ngIf="showAddNewWidget"></widgets>
+        <widget-efld *ngIf="showEfldWidget"></widget-efld>
+    </div>
+</div>

@@ -12,7 +12,7 @@ import { Observable } from "rxjs";
   providers: [ProjectSearchService],
   animations: [
       trigger('searchOverlayAnimation', [
-      state('*', style({
+      state('*', style({ 
         transform: 'translateY(0)'
       })),
       transition(':enter' , [
@@ -61,6 +61,10 @@ export class ProjectSearchComponent implements OnInit, OnDestroy, AfterViewCheck
     showSearchActionButtons: Boolean = false;
     showSearchOptionsToggle: Boolean = false;
     showSearchResultsToggle: Boolean = true;
+    showSearchDetailsToggle: Boolean = false;
+    // 1 - Search Options
+    // 2 - Search Details
+    markComponentToShow: number = 0;
     showLoadingSpinner: Boolean = true;
     searchDataSubscription: any = null;
     projectSearchSubscription: any = null;
@@ -68,6 +72,8 @@ export class ProjectSearchComponent implements OnInit, OnDestroy, AfterViewCheck
     displayedSearchData: Array<any> = [];
     previousFocusedListItem: number = null;
     copyToClipboard: Boolean = true;
+    projectIDForEdit: number = null;
+    projectNameForEdit: String = "";
 
     @HostBinding('@searchOverlayAnimation') searchOverlayAnimation = true;
     @HostListener('@searchOverlayAnimation.done') animationDone() {}
@@ -119,12 +125,9 @@ export class ProjectSearchComponent implements OnInit, OnDestroy, AfterViewCheck
     }
 
     showSearchOptions() {
+        this.markComponentToShow = 1;
         this.enableComponentSwitching = true;
         this.showSearchResultsToggle = false;
-        /*if (this.showSearchOptionsToggle)
-            this.showSearchOptionsToggle = false
-        else
-            this.showSearchOptionsToggle = true;*/
     }
 
     closeSearchOptions(event) {
@@ -133,13 +136,10 @@ export class ProjectSearchComponent implements OnInit, OnDestroy, AfterViewCheck
     }
 
     closeSearchOptionsAnimationsDone(event) {
-        console.log(this.showSearchResultsToggle);
         if (this.enableComponentSwitching) {
             this.showSearchResultsToggle = true;
             this.enableComponentSwitching = false;
-            console.log(this.showSearchResultsToggle);
         }
-            
     }
 
     toggleProjectActions(index: number) {
@@ -160,9 +160,22 @@ export class ProjectSearchComponent implements OnInit, OnDestroy, AfterViewCheck
 
     showSearchResultsAnimationEnded(event) {
         if (this.enableComponentSwitching) {
-            this.showSearchOptionsToggle = true;
-            this.enableComponentSwitching = false;
+            if (this.markComponentToShow == 1) {
+                this.showSearchOptionsToggle = true;
+                this.enableComponentSwitching = false;
+            } else if (this.markComponentToShow == 2) {
+                this.showSearchDetailsToggle = true;
+                this.enableComponentSwitching = false;
+            }
         }
+    }
+
+    showSearchDetails(projectID, projectName) {
+        this.projectIDForEdit = projectID;
+        this.projectNameForEdit = projectName;
+        this.markComponentToShow = 2;
+        this.enableComponentSwitching = true;
+        this.showSearchResultsToggle = false;
     }
     
     ngOnDestroy() {

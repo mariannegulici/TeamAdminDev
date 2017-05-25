@@ -3,7 +3,7 @@
         <div class="left-column-toolbar">
             <span>Search Options</span>
         </div>
-        <button md-raised-button (click)="showSearchOptions()" color="accent" [disabled]="showSearchOptionsToggle">
+        <button md-raised-button (click)="showSearchOptions()" color="accent" [disabled]="showSearchOptionsToggle || showSearchDetailsToggle">
             <md-icon>settings</md-icon>
             Search Options</button>
     </div>
@@ -12,7 +12,7 @@
         [@showSearchResultsAnimation]="showSearchResultsToggle"
         (@showSearchResultsAnimation.done)="showSearchResultsAnimationEnded($event)"
         class="paper-main-view-wrapper">
-            <md-progress-spinner *ngIf="showLoadingSpinner" class="example-margin" color="accent" mode="indeterminate"></md-progress-spinner>
+            <md-progress-spinner *ngIf="showLoadingSpinner" color="accent" mode="indeterminate"></md-progress-spinner>
             <div class="project-search-header">
                 <div class="search-header-container left-container">
                     <span>Search results for:<span class="search-header-value">{{searchInputValue}}</span></span>
@@ -22,8 +22,8 @@
                         <span id="clipboard-text">Click to copy search values</span>
                         <md-icon id="clipboard-icon" mdTooltip="If this feature is enabled, when you click on a Search result individual value, it will copy it to the OS Clipboard, thus making copy / paste of information much easier !">info</md-icon>
                         <md-slide-toggle color="accent" checked="true" (change)="toggleCopyClipboard($event)" [ngSwitch]="copyToClipboard">
-                            <span *ngSwitchCase="false">Enable!</span>
-                            <span *ngSwitchCase="true">Disable!</span>
+                            <span *ngSwitchCase="false">Turn On!</span>
+                            <span *ngSwitchCase="true">Turn off!</span>
                             <span *ngSwitchDefault></span>
                         </md-slide-toggle>
                     </div>
@@ -44,12 +44,13 @@
                     </span>
                     <ng-container *ngIf="searchData.showActions">
                         <button class="add-project-task" [@showActionButtonsAnimation] md-icon-button mdTooltip="Add new task to project" mdTooltipPosition="after"><md-icon>add_box</md-icon></button>
-                        <button class="view-project-details" [@showActionButtonsAnimation] md-icon-button mdTooltip="View project details" mdTooltipPosition="after"><md-icon>assignment</md-icon></button>
+                        <button class="view-project-details"[@showActionButtonsAnimation] (click)="showSearchDetails(searchData.searchValue.ProjectID,searchData.searchValue.ProjectName)" md-icon-button mdTooltip="View project details" mdTooltipPosition="after"><md-icon>assignment</md-icon></button>
                     </ng-container>
                 </md-list-item>
             </md-list>
         </div>
         <project-search-options *ngIf="showSearchOptionsToggle" (closeOptions)="closeSearchOptions($event)" (closeOptionsAnimationDone)="closeSearchOptionsAnimationsDone($event)"></project-search-options>
+        <project-search-details *ngIf="showSearchDetailsToggle" [projectID]="projectIDForEdit" [projectName]="projectNameForEdit"></project-search-details>
     </div>
     <div class="paper-right-column">
         <div class="right-column-toolbar"></div>

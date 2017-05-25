@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialDesignLoaderModule } from './material-design-loader.module';
 
 import { ProductionModule } from './production/production.module';
+import { StatisticsModule } from './statistics/statistics.module';
 import { PersonalAreaModule } from './personal-area/personal-area.module';
 import { DeveloperToolsModule } from './developer-tools/developer-tools.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
@@ -15,6 +16,7 @@ import "hammerjs";
 import { AppComponent } from './app.component';
 import { ProjectSearchComponent } from './project-search/project-search.component';
 import { ProjectsSearchOptionsComponent } from './project-search/search-options.component';
+import { ProjectsSearchDetailsComponent } from './project-search/search-details.component';
 
 import { ProjectSearchDispatcherService } from './dispatcher-services/project-search.dispatcher.service';
 import { ClipboardService } from './shared/clipboard.service';
@@ -25,6 +27,7 @@ import { ClipboardDirective } from './shared/clipboard.directive';
     AppComponent,
     ProjectSearchComponent,
     ProjectsSearchOptionsComponent,
+    ProjectsSearchDetailsComponent,
     ClipboardDirective
   ],
   imports: [
@@ -34,6 +37,7 @@ import { ClipboardDirective } from './shared/clipboard.directive';
     ProductionModule,
     PersonalAreaModule,
     DeveloperToolsModule,
+    StatisticsModule,
     LandingPageModule,
     MaterialDesignLoaderModule,
     ApolloClientModule,

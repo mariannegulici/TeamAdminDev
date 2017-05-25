@@ -5,6 +5,7 @@ import { MaterialDesignLoaderModule } from '../material-design-loader.module';
 import { FormsModule } from '@angular/forms';
 
 import { DeveloperToolsComponent } from './developer-tools.component';
+import { DeveloperToolsService } from './developer-tools.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DeveloperToolsComponent } from './developer-tools.component';
     MaterialDesignLoaderModule
   ],
   providers: [
+    DeveloperToolsService
   ]
 })
 export class DeveloperToolsModule { }

@@ -90,6 +90,12 @@ app-landing-page {
     height: 100vh;
 }
 
+app-statistics {
+    display: block;
+    width: inherit;
+    height: 100vh;
+}
+
 app-project-search {
     display: flex;
     position: absolute;
